@@ -20,5 +20,25 @@ public class Task01 {
         double[] temperature = { -1.7, -1.0, 2.6,  9.0, 15.1, 19.4, 21.4, 21.2, 17.1, 11.1, 5.9,  1.4 };
         // TODO: Write your code here
 
+        String[] month = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"};
+        double avgTemp = 0.0;
+        for (double temp: temperature) {
+            avgTemp += temp;
+        }
+        avgTemp = avgTemp / temperature.length;
+        System.out.println("Average annual temperature: " + avgTemp);
+
+        int coldMonthIdx = 0;
+        int hottestMonthIdx = 0;
+        for (int i = 1; i< temperature.length; i++){
+            if(temperature[i] < temperature[coldMonthIdx]){
+                coldMonthIdx = i;
+            }
+            if (temperature[i] > temperature[hottestMonthIdx]) {
+                hottestMonthIdx = i;
+            }
+        }
+        System.out.println("Month with the lowest temperature in a year: " + month[coldMonthIdx]);
+        System.out.println("The month with the highest temperatures in a year: " + month[hottestMonthIdx]);
     }
 }
